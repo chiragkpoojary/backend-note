@@ -10,13 +10,17 @@
   },
   "name": "backend-note",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
+      "build": "parcel build index.js --dist-dir dist",
     "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
