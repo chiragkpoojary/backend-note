@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import 'dotenv/config';
 const db_name="noteapp";
 const connectdb = async () => {
   try{
