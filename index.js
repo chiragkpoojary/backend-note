@@ -16,7 +16,10 @@ import routers_del from "./router/delete.router.js";
 app.use("/api",routers_del);
 import auth from "./router/auth.router.js";
 app.use("/api",auth);
-
+import register from "./router/register.js";
+app.use("/api",register)
+import login from "./router/login.js";
+app.use("/api",login)
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
   });
