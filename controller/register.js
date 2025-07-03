@@ -19,6 +19,7 @@ import User from '../models/auth.model.js';
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
     res.status(500).json({ error: err.message });
+    console.log( err.message)
   }
 }
 

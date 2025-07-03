@@ -15,9 +15,9 @@ const noteschema = new Schema(
     description: {
       type: String,
     },
-    isPublic: {
+    isGlobal: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,

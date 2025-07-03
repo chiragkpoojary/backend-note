@@ -1,14 +1,16 @@
 import Notes from "../models/note.models.js";
-
+import mongoose from "mongoose";
 async function noteroute(req,res) {
-  //take all those input and store in db
 try{
     const { title, tags, description } = req.body;
-  
+const isAuthenticated = !!req.user;
+  
     const note = await Notes.create({
       title,
       tags,
-       description
+       description,
+       isGlobal:!isAuthenticated,
+        userId: isAuthenticated ? new mongoose.Types.ObjectId(req.user.id) : null,
     });
 
     await note.save();
