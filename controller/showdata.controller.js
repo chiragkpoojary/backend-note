@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 const showdata = async (req, res) => {
   let note;
   try {
-    if(req.user){
-      note = await Note.find({isGlobal:false,userId: new mongoose.Types.ObjectId(req.user.id)});
+    if(req.headers.authorization ){
+      note = await Note.find({isGlobal:false});
+      
 console.log("req.user in showdata:", req.user);
 
     } else{
+   console.log("req.user in showdata:", req.user);
       note = await Note.find({
   $or: [
     { isGlobal: true },
