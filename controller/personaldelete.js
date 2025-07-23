@@ -5,6 +5,7 @@ import Notes from '../models/note.models.js';
 async function personaldeletenote(req, res)  {
   try {
     const userId = req.user.id;
+    console.log(userId)
     const noteId = req.params.id;
 
     const note = await Notes.findById(noteId);

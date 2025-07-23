@@ -3,7 +3,7 @@ async function auth(req, res) {
 
       const { passcode } = req.headers;
       
-      console.log("Received passcode:", passcode);
+  
   
       
       if (!passcode || passcode !== process.env.PASS) {

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import auth_middleware from "../controller/auth_middleware.js";
+import auth_middleware from "../controller/loose_auth_middleware.js";
 import personaldeletedata from "../controller/personaldelete.js";
 const routers_per_del=Router();
 

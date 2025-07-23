@@ -6,7 +6,6 @@ const showdata = async (req, res) => {
     if(req.user){
       note = await Note.find({isGlobal:false});
       
-console.log("req.user in showdata:", req.user);
 
     } else{
   
@@ -18,7 +17,6 @@ console.log("req.user in showdata:", req.user);
 });
 
 
-      console.log(note.length)
     }
 
     const reversedNotes = note.reverse();

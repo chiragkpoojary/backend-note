@@ -5,7 +5,6 @@ try{
     const { title, tags, description } = req.body;
     
 const isAuthenticated = req.headers.authorization;
-console.log(isAuthenticated)
   
     const note = await Notes.create({
       title,
