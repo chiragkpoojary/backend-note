@@ -12,8 +12,6 @@ import route from "./router/createednote.routes.js";
 app.use("/api",route);
 import routers from "./router/showdata.router.js";
 app.use("/api",routers);
-import routers_del from "./router/delete.router.js";
-app.use("/api",routers_del);
 import auth from "./router/auth.router.js";
 app.use("/api",auth);
 import register from "./router/register.js";

@@ -2,9 +2,14 @@ import Note from "../models/note.models.js";
 import mongoose from "mongoose";
 const showdata = async (req, res) => {
   let note;
+  let page = req.params.page;
+  let limit=req.params.limit;
+  let skip=(page-1)*limit;
   try {
     if(req.user){
-      note = await Note.find({isGlobal:false});
+
+      note = await Note.find({$and:[{isGlobal:false},{
+          userId: req.user.id}]}).sort({createdAt:-1}).skip(skip).limit(limit).exec();
       
 
     } else{
@@ -14,13 +19,13 @@ const showdata = async (req, res) => {
     { isGlobal: true },
     { isGlobal: { $exists: false } }
   ]
-});
+}).sort({createdAt:-1}).skip(skip).limit(limit);
 
 
     }
 
-    const reversedNotes = note.reverse();
-res.status(200).json({reversedNotes});
+
+res.status(200).json({note});
 
   } catch (e) {
     console.log("error while showing data", e);

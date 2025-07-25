@@ -7,9 +7,9 @@ async function personaldeletenote(req, res)  {
     const userId = req.user.id;
     console.log(userId)
     const noteId = req.params.id;
-
+console.log(noteId);
     const note = await Notes.findById(noteId);
-
+console.log(note);
     if (!note) {
       return res.status(404).json({ message: "Note not found" });
     }

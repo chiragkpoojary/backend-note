@@ -11,7 +11,7 @@ const isAuthenticated = req.headers.authorization;
       tags,
        description,
        isGlobal:!isAuthenticated,
-        userId: isAuthenticated ? new mongoose.Types.ObjectId(req.user.id) : null,
+        userId: req.isAuthenticated ? req.user.id : null,
     });
 
     await note.save();
