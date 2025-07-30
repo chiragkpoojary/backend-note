@@ -5,11 +5,14 @@ import Notes from '../models/note.models.js';
 async function personaldeletenote(req, res)  {
   try {
     const userId = req.user.id;
-    console.log(userId)
+
     const noteId = req.params.id;
-console.log(noteId);
+
     const note = await Notes.findById(noteId);
-console.log(note);
+if(req.user.role==="admin"){
+  await Notes.findByIdAndDelete(noteId);
+  return res.json({ message: "Note deleted successfully." });
+}
     if (!note) {
       return res.status(404).json({ message: "Note not found" });
     }
