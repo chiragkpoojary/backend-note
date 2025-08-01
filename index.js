@@ -7,7 +7,8 @@ import cors from "cors";
 
 app.use(express.json());
 app.use(cors());
-
+import forgotpassRouter from "./router/forgotpass.router.js";
+app.use("/api", forgotpassRouter);
 import route from "./router/createednote.routes.js";
 app.use("/api",route);
 import routers from "./router/showdata.router.js";
