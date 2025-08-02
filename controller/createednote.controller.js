@@ -14,7 +14,7 @@ const isAuthenticated = req.headers.authorization;
         userId: req.isAuthenticated ? req.user.id : null,
     });
 
-    await note.save();
+
       res.status(201).json({ message: "Note successfully created", note });
     
   }catch(e){

@@ -7,7 +7,7 @@ import 'dotenv/config';
 import User from '../models/auth.model.js';
 import nodemailer from 'nodemailer';
 
-async function forgotPass(req, res) {
+async function forgotPass_Mail(req, res) {
   const {email} = req.body;
 
   try {
@@ -17,7 +17,7 @@ async function forgotPass(req, res) {
       return res.status(401).json({error: "Invalid credentials cannot change password"});
     }
     const token = jwt.sign({id: user._id, email: user.email}, process.env.JWT_FORGOT, {expiresIn: '10m'});
-    const url = `http://localhost:8080/api/resetpassword?id=${user._id}&token=${token}`;
+    const url = `http://localhost:5173/resetpassword?id=${user._id}&token=${token}`;
     const transpoder = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -34,7 +34,7 @@ async function forgotPass(req, res) {
       ${url}\n\n
       If you did not request this, please ignore this email and your password will remain unchanged.\n\n
       your's sincerly,
-      nestnodes
+      Cnote
       `,
     };
 
@@ -48,4 +48,4 @@ async function forgotPass(req, res) {
   }
 }
 
-export default forgotPass;
+export default forgotPass_Mail;
