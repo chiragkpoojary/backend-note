@@ -17,7 +17,7 @@ async function forgotPass_Mail(req, res) {
       return res.status(401).json({error: "Invalid credentials cannot change password"});
     }
     const token = jwt.sign({id: user._id, email: user.email}, process.env.JWT_FORGOT, {expiresIn: '10m'});
-    const url = `http://localhost:5173/resetpassword?id=${user._id}&token=${token}`;
+    const url = `https://cnote.vercel.app/resetpassword?id=${user._id}&token=${token}`;
     const transpoder = nodemailer.createTransport({
       service: "gmail",
       auth: {
