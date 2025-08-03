@@ -4,13 +4,13 @@ async function noteroute(req,res) {
 try{
     const { title, tags, description } = req.body;
     
-const isAuthenticated = req.headers.authorization;
+
   
     const note = await Notes.create({
       title,
       tags,
        description,
-       isGlobal:!isAuthenticated,
+       isGlobal:!req.isAuthenticated,
         userId: req.isAuthenticated ? req.user.id : null,
     });
 

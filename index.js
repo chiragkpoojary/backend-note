@@ -8,6 +8,7 @@ import cors from "cors";
 app.use(express.json());
 app.use(cors());
 app.use("/api",changepass_router);
+app.use("/api",search_router);
 import forgotpassRouter from "./router/forgotpassMail.router.js";
 app.use("/api", forgotpassRouter);
 import route from "./router/createednote.routes.js";
@@ -23,6 +24,7 @@ app.use("/api",login)
 import routers_per_del from "./router/personaldelete.js";
 import changepassRouter from "./router/changepass.router.js";
 import changepass_router from "./router/changepass.router.js";
+import search_router from "./router/search.router.js";
 app.use("/api",routers_per_del)
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });

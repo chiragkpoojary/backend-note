@@ -6,7 +6,7 @@ const showdata = async (req, res) => {
   let limit=req.query.limit;
 let total;
   let skip=(page-1)*limit;
-  try {
+    try {
       if (req.user) {
 
           if (req.user.role === "admin") {
@@ -36,17 +36,17 @@ let total;
 
 
     } else{
-  
-      note = await Note.find({
-  $or: [
-    { isGlobal: true },
-    { isGlobal: { $exists: false } }
-  ]
-}).sort({createdAt:-1}).skip(skip).limit(limit);
-    total= await Note.countDocuments({ $or: [
-          { isGlobal: true },
-          { isGlobal: { $exists: false } }
-        ]})
+
+          note = await Note.find({
+
+                   isGlobal: true
+
+          }).sort({ createdAt: -1 }).skip(skip).limit(limit);
+          total = await Note.countDocuments({
+              $or: [
+                  {isGlobal: true},
+              ]
+          })
 
 
     }
