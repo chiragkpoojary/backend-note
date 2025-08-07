@@ -21,10 +21,12 @@ import register from "./router/register.js";
 app.use("/api",register)
 import login from "./router/login.js";
 app.use("/api",login)
+app.use("/api",visit_router);
 import routers_per_del from "./router/personaldelete.js";
 import changepassRouter from "./router/changepass.router.js";
 import changepass_router from "./router/changepass.router.js";
 import search_router from "./router/search.router.js";
+import visit_router from "./router/vists.router.js";
 app.use("/api",routers_per_del)
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
