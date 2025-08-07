@@ -27,7 +27,9 @@ import changepassRouter from "./router/changepass.router.js";
 import changepass_router from "./router/changepass.router.js";
 import search_router from "./router/search.router.js";
 import visit_router from "./router/vists.router.js";
+import polling from "./router/polling.js";
 app.use("/api",routers_per_del)
+app.use("/api",polling);
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
   });
