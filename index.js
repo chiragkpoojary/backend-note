@@ -6,7 +6,8 @@ import cors from "cors";
  import  connectdb from "./database/connect.js"; 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: 'cnote.vercel.app',
+    methods: ['GET', 'POST','DELETE']}));
 app.use("/api",changepass_router);
 app.use("/api",search_router);
 import forgotpassRouter from "./router/forgotpassMail.router.js";
