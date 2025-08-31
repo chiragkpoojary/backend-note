@@ -2,7 +2,13 @@ import Note from "../models/note.models.js";
 
 const searchData = async (req, res) => {
     const { search = "" } = req.query;
-    const regexSearch = { title: { $regex: search, $options: "i" } };
+   const regexSearch = { 
+  $or: [
+    { title: { $regex: search, $options: "i" } },
+    { tags: { $regex: search, $options: "i" } }
+  ]
+};
+
 
     let filter;
     if (req.isAuthenticated) {

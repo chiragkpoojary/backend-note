@@ -35,11 +35,13 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
   });
   
-
+const PORT = process.env.PORT || 8080;
 connectdb().then(
-app.listen(process.env.PORT||8080, () => {
-    console.log('Server is running on port 8080');
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 })
+
 )
 
 
