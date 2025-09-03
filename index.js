@@ -32,7 +32,7 @@ import polling from "./router/polling.js";
 app.use("/api",routers_per_del)
 app.use("/api",polling);
 app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'okkk' });
+    res.status(200).json({ status: 'okkk1' });
   });
   
 const PORT = process.env.PORT || 8080;
