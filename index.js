@@ -6,7 +6,7 @@ import cors from "cors";
  import  connectdb from "./database/connect.js"; 
 
 app.use(express.json());
-app.use(cors({origin: 'https://cnote.vercel.app',
+app.use(cors({origin: ['https://cnote.vercel.app','https://cnote.chiragkpoojary.in'],
     methods: ['GET', 'POST','DELETE']}));
 app.use("/api",changepass_router);
 app.use("/api",search_router);
